@@ -30,8 +30,10 @@
   --foot-text: #CFE5D8;
   --foot-dim: #8FA89A;
   --foot-line: #1E2C25;
-  --wash: #1F7A57;         /* the hero's soft wash of green */
-  --wash-strength: 20%;
+  --wash: #1F7A57;         /* the hero's wash: green from the top right … */
+  --wash-strength: 30%;
+  --wash-2: #B9DCC8;       /* … a pale pool at the bottom left … */
+  --wash-2-strength: 70%;
   --radius: 10px;
   --wrap: 1120px;
   --font: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -47,7 +49,7 @@
     --eyebrow: #8FC9A9; --header-bg: rgba(12, 19, 16, 0.9);
     --band: #0A3D2A; --band-text: #CFE5D8; --band-button: #CFE5D8; --band-button-text: #0A3D2A;
     --foot-bg: #070C0A; --foot-text: #CFE5D8; --foot-dim: #7F978A; --foot-line: #18241E;
-    --wash: #2F9B6E; --wash-strength: 18%;
+    --wash: #2F9B6E; --wash-strength: 34%; --wash-2: #1F7A57; --wash-2-strength: 30%;
   }
 }
 :root[data-theme="dark"] {
@@ -58,7 +60,7 @@
   --eyebrow: #8FC9A9; --header-bg: rgba(12, 19, 16, 0.9);
   --band: #0A3D2A; --band-text: #CFE5D8; --band-button: #CFE5D8; --band-button-text: #0A3D2A;
   --foot-bg: #070C0A; --foot-text: #CFE5D8; --foot-dim: #7F978A; --foot-line: #18241E;
-  --wash: #2F9B6E; --wash-strength: 18%;
+  --wash: #2F9B6E; --wash-strength: 34%; --wash-2: #1F7A57; --wash-2-strength: 30%;
 }
 
 /* the wordmark: one image per theme, shown by the same rule as the colours */
@@ -143,9 +145,9 @@ section.dark .button:hover { background: var(--band-text); border-color: var(--b
    left, over the page colour. CSS only, so it is there in the first paint. */
 .hero.wash {
   background:
-    radial-gradient(75% 110% at 100% 0%, color-mix(in srgb, var(--wash) var(--wash-strength), transparent), transparent 70%),
-    radial-gradient(55% 80% at 0% 100%, color-mix(in srgb, var(--wash) calc(var(--wash-strength) * 0.5), transparent), transparent 70%),
-    var(--bg);
+    radial-gradient(70% 120% at 95% -10%, color-mix(in srgb, var(--wash) var(--wash-strength), transparent), transparent 72%),
+    radial-gradient(55% 90% at 0% 110%, color-mix(in srgb, var(--wash-2) var(--wash-2-strength), transparent), transparent 70%),
+    linear-gradient(180deg, var(--bg) 40%, var(--tint));   /* … and the page fading into the section below */
 }
 .narrow { max-width: 46em; }
 .stack-top { margin-top: 32px; }

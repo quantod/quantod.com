@@ -9,8 +9,14 @@
     try { var v = localStorage.getItem(KEY); return v === 'light' || v === 'dark' ? v : 'auto'; }
     catch (e) { return 'auto'; }
   }
+  var BAR = { light: '#FFFFFF', dark: '#0C1310' };
   function apply(choice) {
     if (choice === 'auto') root.removeAttribute('data-theme'); else root.setAttribute('data-theme', choice);
+    // The browser bar: the chosen theme's colour on both theme-color tags, or back to the system's.
+    document.querySelectorAll('meta[name="theme-color"]').forEach(function (m) {
+      var media = m.getAttribute('media') || '';
+      m.setAttribute('content', choice === 'auto' ? (media.indexOf('dark') >= 0 ? BAR.dark : BAR.light) : BAR[choice]);
+    });
     document.querySelectorAll('[data-theme-button]').forEach(function (b) {
       b.setAttribute('data-choice', choice);
       b.title = 'Theme: ' + LABEL[choice];

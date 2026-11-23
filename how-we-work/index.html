@@ -3,6 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The site draws its own light and dark themes (site.css, the header's switch). darkreader-lock
+       keeps Dark Reader from darkening it again; color-scheme tells browsers (Chrome's forced dark on
+       Android, Samsung Internet, …) that both schemes are drawn here, so they leave the page alone. -->
+  <meta name="darkreader-lock">
+  <meta name="color-scheme" content="light dark">
   <title>How we work — Quantod</title>
   <meta name="description" content="A free call, a fixed-price pilot on one process, then running and extending it. What you get, what we need from you, and what you keep.">
   <link rel="canonical" href="https://quantod.com/how-we-work/">
@@ -11,6 +16,7 @@
   <meta property="og:description" content="A free call, a fixed-price pilot on one process, then running and extending it. What you get, what we need from you, and what you keep.">
   <meta property="og:url" content="https://quantod.com/how-we-work/">
   <meta property="og:image" content="https://quantod.com/assets/share.png">
+  <!-- The browser bar's colour: by the system, until the visitor picks a theme (theme.js). -->
   <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0C1310" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">

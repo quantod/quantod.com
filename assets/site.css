@@ -9,7 +9,7 @@
 }
 
 :root {
-  color-scheme: light;
+  color-scheme: light dark;   /* both drawn here; the rules below say which is in use */
   --bg: #FFFFFF;           /* page */
   --surface: #FFFFFF;      /* cards */
   --tint: #EEF5F0;         /* alternate sections */
@@ -62,6 +62,10 @@
   --foot-bg: #070C0A; --foot-text: #CFE5D8; --foot-dim: #7F978A; --foot-line: #18241E;
   --wash: #2F9B6E; --wash-strength: 34%; --wash-2: #1F7A57; --wash-2-strength: 30%;
 }
+
+/* A visitor who picked light keeps it even on a dark system: "only" stops browsers that darken pages
+   on their own (Chrome's forced dark, Samsung Internet) from doing it to this one. */
+:root[data-theme="light"] { color-scheme: only light; }
 
 /* the wordmark: one image per theme, shown by the same rule as the colours */
 .for-dark { display: none !important; }
